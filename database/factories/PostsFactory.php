@@ -1,0 +1,29 @@
+<?php
+
+namespace Database\Factories;
+
+use App\Models\User;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\posts>
+ */
+class PostsFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        return [
+            "user_id" => User::factory(),
+            "head" => fake()->title(),
+            "text" => fake()->sentence(),
+            "image" => fake()->imageUrl(),
+            "updated_at" => now(),
+            "created_at" => now(),
+        ];
+    }
+}
