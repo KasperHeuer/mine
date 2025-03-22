@@ -10,7 +10,7 @@ class Item extends Model
 {
     use HasFactory;
 
-    // In App\Models\Item.php
+
     protected $guarded = [];
 
 

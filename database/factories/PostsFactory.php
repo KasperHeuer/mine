@@ -15,15 +15,16 @@ class PostsFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition(): array
+    public function definition()
     {
         return [
-            "user_id" => User::factory(),
-            "head" => fake()->title(),
-            "text" => fake()->sentence(),
+            "user_id" => User::inRandomOrder()->first()->id ?? User::factory(),
+            "head" => fake()->sentence(),
+            "text" => fake()->paragraph(),
             "image" => fake()->imageUrl(),
-            "updated_at" => now(),
             "created_at" => now(),
+            "updated_at" => now(),
         ];
     }
+    
 }

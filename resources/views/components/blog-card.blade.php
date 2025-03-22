@@ -29,4 +29,20 @@
             @endif
         @endauth
     </div>
+    <div class="flex bg-white/10 p-4 rounded-lg shadow">
+        @if ($post->comments->count() > 0)
+            <div class="space-y-4">
+                @foreach ($post->comments as $comment)
+                    <div class="border border-gray-600 bg-gray-800 text-gray-200 rounded-lg p-4 shadow-md">
+                        <p class="font-bold">{{ $post->user->name }} Posted:</p>
+                        <p class="mt-2">{{ $comment->comment }}</p>
+                    </div>
+                @endforeach
+            </div>
+        @else
+            <p class="text-gray-400">No comments yet.</p>
+        @endif
+
+    </div>
+
 </x-panel>
